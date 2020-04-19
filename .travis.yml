@@ -9,6 +9,3 @@ script:
   - make test
   - make docker_build
   - make docker_push
-# after_success:
-# - make docker_build
-script.after_success:
