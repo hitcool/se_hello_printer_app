@@ -47,7 +47,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   ```
   ...
 
-  # aktywacja 
+  # aktywacja
   $ source .venv/bin/activate
   ```
 
@@ -56,6 +56,30 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   ```
   # miejsce na twoje notatki
   ```
+
+  -------------20200418------------------
+- Dodany plik Makefile w którym wpisujemy:
+  # aby uruchomić w terminalu wpisujemy: make deps, make run, make lint
+  .PHONY: test
+
+  deps:
+  	pip install -r requirements.txt; \
+  	pip install -r test_requirements.txt
+
+  lint:
+  	flake8 hello_world test
+
+  run:
+  	PYTHONPATH=. FLASK_APP=hello_world flask run
+
+  test:
+  	PYTHONPATH=. py.test --verbose -s
+
+  docker_build:
+  	docker build -t hello-world-printer .
+  ----------------------------------------
+
+
 
 # Pomocnicze
 
