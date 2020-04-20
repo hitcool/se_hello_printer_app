@@ -19,4 +19,4 @@ class FlaskrTestCase(unittest.TestCase):
 
     def test_xml(self):
         rv = self.app.get('/?output=xml')
-        self.assertIn("<greetings>", rv.data)
+        self.assertIn(b"<greetings>", rv.data)

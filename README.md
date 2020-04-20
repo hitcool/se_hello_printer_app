@@ -11,6 +11,19 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
 
   # aktywowanie hermetycznego środowiska
   $ source .venv/bin/activate
+  $ make deps - instalacja srodowiska
+
+  $ make lint - sprawdzenie wygladu kodu
+  $ make test - odpalenie testow
+  $ make run  - uruchomienie aplikacji
+  $ make docker_build - zbudowanie pakietu dockera (nowy terminal sudo su i w tedy wykonać)
+  $ make docker_run - uruchomienie aplikacji jako doker (tez z sudo)
+  $ --------gdy coś nie działa: zaczymać->usunąć-> uruchomić proces--------
+  $ docker stop hello-world-printer-dev - zatrzymanie dockera
+  $ docker rm hello-world-printer-dev - wywalenie dockera
+  $ make docker_run
+
+  # aleternatywnie zamiast make deps
   $ pip install -r requirements.txt
   $ pip install -r test_requirements.txt
 
@@ -57,26 +70,8 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   # miejsce na twoje notatki
   ```
 
-  -------------20200418------------------
-- Dodany plik Makefile w którym wpisujemy:
-  # aby uruchomić w terminalu wpisujemy: make deps, make run, make lint
-  .PHONY: test
+  # aby uruchomić w terminalu wpisujemy: make deps, make run, make lint, make test
 
-  deps:
-  	pip install -r requirements.txt; \
-  	pip install -r test_requirements.txt
-
-  lint:
-  	flake8 hello_world test
-
-  run:
-  	PYTHONPATH=. FLASK_APP=hello_world flask run
-
-  test:
-  	PYTHONPATH=. py.test --verbose -s
-
-  docker_build:
-  	docker build -t hello-world-printer .
   ----------------------------------------
 
 
@@ -88,7 +83,6 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
 -----------------------------------------
 5.
 - Instalacja dockera: [dockerce howto](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-
 
 
 - 2 Instalacja docker-a:
@@ -107,17 +101,12 @@ CMD PYTHONPATH=$PYTHONPATH:/usr/src/hello_world_printer \
 
 ------------------------
 - 3. w nowej konsoli sudo su uruchamiamy:
-  make decker_build
-- 4. Jeśli komponent jest prosty, możemy weryfikować poprawność definicji w czasie etapu budowy:
-Zmień CMD na RUN i ponownie zbuduj komponent. Jeśli aplikacja się uruchomiła, powróć do poprzedniej wersji Dockerfile.
-
-------------------------
-- 6. Uruchom hello-world-printer jako docker, w terminalu:
-make docker_run
+$ make decker_build
+$ make docker_run
 # zweryfikuj, że docker jest uruchomiony
-docker ps
+$ docker ps
 # sprawdź czy aplikacje działa poprawnie
-curl 127.0.0.1:5000
+$ curl 127.0.0.1:5000
 
 ------------------------
 Docker zazwyczaj nie restartujemy, kasujemy i uruchamiamy na nowo:

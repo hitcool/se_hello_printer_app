@@ -29,8 +29,10 @@ def format_to_json(msg, imie):
 
 
 def format_to_xml(msg, imie):
-    return ('<greetings>' + '\n<imie>' + imie + '</imie>' + '\n<msg>'
-            + msg + '</msg>' + '\n</greetings>')
+    return ('<greetings>' +
+            '\n<imie>' + imie + '</imie>' +
+            '\n<msg>' + msg + '</msg>' +
+            '\n</greetings>')
 
 
 def plain_text(msg, imie):
