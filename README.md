@@ -71,19 +71,15 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   ```
   # miejsce na twoje notatki
   ```
-  ```
-  # aby uruchomić w terminalu wpisujemy: make deps, make run, make lint, make test
-  ```
   ----------------------------------------
 
-### Pomocnicze
-
-### Ubuntu
+## Pomocnicze
 
 -----------------------------------------
 
 - Instalacja dockera: [dockerce howto](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
+  ```
   w nowej konsoli sudo su uruchamiamy:
   $ make decker_build
   $ make docker_run
@@ -105,7 +101,8 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   # uruchamiamy bash-a w działającym dockerze z naszą aplikcją:
   docker exec -it hello-world-printer-dev /bin/bash
 
------------------------------------------
+-------------------------
+  ```
 ## Centos
 
   ```
