@@ -80,7 +80,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
 - Instalacja dockera: [dockerce howto](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
   ```
-  w nowej konsoli sudo su uruchamiamy:
+  # W nowej konsoli sudo su uruchamiamy:
   $ make decker_build
   $ make docker_run
   # zweryfikuj, że docker jest uruchomiony
@@ -88,20 +88,17 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   # sprawdź czy aplikacje działa poprawnie
   $ curl 127.0.0.1:5000
 
-------------------------
-  Docker zazwyczaj nie restartujemy, kasujemy i uruchamiamy na nowo:
+  # Docker zazwyczaj nie restartujemy, kasujemy i uruchamiamy na nowo:
   # docker stop hello-world-printer-dev
   # docker rm hello-world-printer-dev
   # make docker_run
 
-------------------------
-  Przydatne komendy docker-a (pamiętamy o sudo):
+  # Przydatne komendy docker-a (pamiętamy o sudo):
   # możemy uruchomieć basha w naszym dockerze
-  docker run -it hello-world-printer /bin/bash
+  $ docker run -it hello-world-printer /bin/bash
   # uruchamiamy bash-a w działającym dockerze z naszą aplikcją:
-  docker exec -it hello-world-printer-dev /bin/bash
+  $ docker exec -it hello-world-printer-dev /bin/bash
 
--------------------------
   ```
 ## Centos
 
