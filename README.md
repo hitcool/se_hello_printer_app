@@ -16,7 +16,9 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   $ make lint - sprawdzenie wygladu kodu
   $ make test - odpalenie testow
   $ make run  - uruchomienie aplikacji
-  $ make docker_build - zbudowanie pakietu dockera (nowy terminal sudo su i w tedy wykonać)
+  $ -----------------------------------
+  $ (W nowym terminalu sudo su i w tedy wykonać)
+  $ make docker_build - zbudowanie pakietu dockera
   $ make docker_run - uruchomienie aplikacji jako doker (tez z sudo)
   $ --------gdy coś nie działa: zaczymać->usunąć-> uruchomić proces--------
   $ docker stop hello-world-printer-dev - zatrzymanie dockera
@@ -69,60 +71,39 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   ```
   # miejsce na twoje notatki
   ```
-
+  ```
   # aby uruchomić w terminalu wpisujemy: make deps, make run, make lint, make test
-
+  ```
   ----------------------------------------
 
+###Pomocnicze
 
-
-# Pomocnicze
-
-## Ubuntu
+### Ubuntu
 
 -----------------------------------------
-5.
+
 - Instalacja dockera: [dockerce howto](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
-
-- 2 Instalacja docker-a:
-
-FROM python:3
-ARG APP_DIR=/usr/src/hello_world_printer
-WORKDIR /tmp
-ADD requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt
-RUN mkdir -p $APP_DIR
-ADD hello_world/ $APP_DIR/hello_world/
-ADD main.py $APP_DIR
-
-CMD PYTHONPATH=$PYTHONPATH:/usr/src/hello_world_printer \
-  FLASK_APP=hello_world flask run --host=0.0.0.0
+  w nowej konsoli sudo su uruchamiamy:
+  $ make decker_build
+  $ make docker_run
+  # zweryfikuj, że docker jest uruchomiony
+  $ docker ps
+  # sprawdź czy aplikacje działa poprawnie
+  $ curl 127.0.0.1:5000
 
 ------------------------
-- 3. w nowej konsoli sudo su uruchamiamy:
-$ make decker_build
-$ make docker_run
-# zweryfikuj, że docker jest uruchomiony
-$ docker ps
-# sprawdź czy aplikacje działa poprawnie
-$ curl 127.0.0.1:5000
+  Docker zazwyczaj nie restartujemy, kasujemy i uruchamiamy na nowo:
+  # docker stop hello-world-printer-dev
+  # docker rm hello-world-printer-dev
+  # make docker_run
 
 ------------------------
-Docker zazwyczaj nie restartujemy, kasujemy i uruchamiamy na nowo:
-# docker stop hello-world-printer-dev
-# docker rm hello-world-printer-dev
-# make docker_run
-
-------------------------
-    Przydatne komendy docker-a (pamiętamy o sudo):
-    # możemy uruchomieć basha w naszym dockerze
-    docker run -it hello-world-printer /bin/bash
-    # uruchamiamy bash-a w działającym dockerze z naszą aplikcją:
-    docker exec -it hello-world-printer-dev /bin/bash
-
-
-
+  Przydatne komendy docker-a (pamiętamy o sudo):
+  # możemy uruchomieć basha w naszym dockerze
+  docker run -it hello-world-printer /bin/bash
+  # uruchamiamy bash-a w działającym dockerze z naszą aplikcją:
+  docker exec -it hello-world-printer-dev /bin/bash
 
 -----------------------------------------
 ## Centos
