@@ -11,5 +11,5 @@ script:
   - make docker_push
 deploy:
   - provider: heroku
-  - app: shielded-shelf-72212
+  - app: desolate-journey-82660
   - api_key: ${HEROKU_API_KEY}
