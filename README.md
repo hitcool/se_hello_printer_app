@@ -2,8 +2,6 @@
 
 <a href="https://www.statuscake.com" title="Website Uptime Monitoring"><img src="https://app.statuscake.com/button/index.php?Track=hcQCNlqAEc&Days=1&Design=1" /></a>
 
-https://travis-ci.org/hitcool/se_hello_printer_app.svg?branch=master
-
 <a href="https://travis-ci.org/hitcool/se_hello_printer_app"><img src="https://travis-ci.org/hitcool/se_hello_printer_app.svg?branch=master"></a>
 
 
